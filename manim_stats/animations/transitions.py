@@ -122,7 +122,7 @@ import numpy as np
 from manim import (
     VGroup, VMobject, Polygon, Line, DashedLine, Dot3D,
     Text, MathTex, Arrow, Rectangle,
-    ThreeDScene,
+    ThreeDScene, Scene,
     AnimationGroup, LaggedStart, Succession,
     Create, FadeIn, FadeOut, Transform,
     UpdateFromAlphaFunc, Flash,
@@ -617,7 +617,7 @@ class CDFBuild3D:
 
     def build_with_scene(
         self,
-        scene: ThreeDScene,
+        scene: Scene,
         run_time: float = 2.0,
     ) -> None:
         """Add tracker dots and play the animation directly on *scene*."""
@@ -781,7 +781,7 @@ class ParameterSweep3D:
 
     def run(
         self,
-        scene: ThreeDScene,
+        scene: Scene,
         run_time_total: float = 3.0,
         hold_at_ends: float = 0.5,
         show_annotation: bool = True,
@@ -1132,7 +1132,7 @@ class FocusZoom3D:
         self.focus = focus_point
         self.run_time = run_time
 
-    def run(self, scene: ThreeDScene, added_anims: Optional[List] = None) -> None:
+    def run(self, scene: Scene, added_anims: Optional[List] = None) -> None:
         """Reposition the camera directly on *scene*.
 
         Parameters
@@ -1182,7 +1182,7 @@ class OrbitTransition:
 
     def run(
         self,
-        scene: ThreeDScene,
+        scene: Scene,
         added_anims: Optional[List] = None,
     ) -> None:
         """Orbit directly on *scene*, optionally with other simultaneous anims."""
@@ -1241,7 +1241,7 @@ class CIBuild3D:
         bar_stroke_width: float = 2.5,
         band_opacity: float = 0.20,
         ci_label: Optional[str] = None,
-        scene: Optional[ThreeDScene] = None,
+        scene: Optional[Scene] = None,
     ):
         self.mean_pos = np.array(mean_pos, dtype=float)
         self.half_width = half_width
@@ -1634,7 +1634,7 @@ class ScatterToRegression3D:
 
     def run(
         self,
-        scene: ThreeDScene,
+        scene: Scene,
         run_time_residuals: float = 0.7,
         run_time_collapse: float = 1.4,
         hold: float = 0.5,
@@ -1765,7 +1765,7 @@ def cdf_build(
 
 
 def parameter_sweep(
-    scene: ThreeDScene,
+    scene: Scene,
     func: Callable[[float, float], float],
     x_range: Tuple[float, float, float],
     param_range: Tuple[float, float, float],

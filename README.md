@@ -940,3 +940,11 @@ MIT License - see [LICENSE](./LICENSE) for details.
 ---
 
 **Happy Visualizing! 📊✨**
+
+
+Add self.set_camera_orientation(phi=70*DEGREES, theta=-45*DEGREES) to construct():
+props/coin.py · props/die.py · props/spinner.py · props/urn.py
+props/card.py (card scene classes)
+probability/sample_space.py
+charts/scatter_plot3d.py
+regression/regression_plane.py

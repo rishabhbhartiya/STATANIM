@@ -94,7 +94,7 @@ from manim import (
     # Curves
     ParametricFunction, CubicBezier,
     # Scene
-    ThreeDScene,
+    ThreeDScene, Scene,
     # Animations
     AnimationGroup, LaggedStart, Succession,
     Create, FadeIn, FadeOut, Transform, MoveAlongPath,
@@ -555,7 +555,7 @@ class LineMarker3D(VGroup):
         label: Optional[str] = None,
         label_font_size: int = 18,
         label_color: ManimColor = WHITE,
-        scene: Optional[ThreeDScene] = None,
+        scene: Optional[Scene] = None,
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -790,7 +790,7 @@ class LineSeries3D(VGroup):
         y_position: float = 0.0,
         config: Optional[LineConfig] = None,
         name: Optional[str] = None,
-        scene: Optional[ThreeDScene] = None,
+        scene: Optional[Scene] = None,
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -877,7 +877,7 @@ class LineSeries3D(VGroup):
         if cfg.show_point_labels:
             self._build_point_labels(scene)
 
-    def _build_point_labels(self, scene: Optional[ThreeDScene]) -> None:
+    def _build_point_labels(self, scene: Optional[Scene]) -> None:
         fmt = f"{{:.{self.cfg.point_label_decimals}f}}"
         self.point_labels = VGroup()
         for pt in self.raw_points:
@@ -1089,7 +1089,7 @@ class LineSeries3D(VGroup):
         stroke_width: float = 1.8,
         opacity: float = 0.75,
         label: Optional[str] = None,
-        scene: Optional[ThreeDScene] = None,
+        scene: Optional[Scene] = None,
     ) -> VGroup:
         """Draw a horizontal reference line at height *z_value*.
 
@@ -1174,7 +1174,7 @@ class MultiLinePlot3D(VGroup):
         y_position: float = 0.0,
         depth_stagger: float = 0.0,
         area_fill: bool = False,
-        scene: Optional[ThreeDScene] = None,
+        scene: Optional[Scene] = None,
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -1298,7 +1298,7 @@ class MultiLinePlot3D(VGroup):
         self,
         position: np.ndarray = ORIGIN,
         font_size: int = 20,
-        scene: Optional[ThreeDScene] = None,
+        scene: Optional[Scene] = None,
     ) -> VGroup:
         """Add a floating legend panel listing series names and colours.
 
@@ -1355,7 +1355,7 @@ class CDFLine3D(VGroup):
         cdf_values: Sequence[float],
         y_position: float = 0.0,
         config: Optional[LineConfig] = None,
-        scene: Optional[ThreeDScene] = None,
+        scene: Optional[Scene] = None,
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -1463,7 +1463,7 @@ class CDFLine3D(VGroup):
         x_crit: float,
         label: str = "",
         color: ManimColor = ManimColor("#E0AA40"),
-        scene: Optional[ThreeDScene] = None,
+        scene: Optional[Scene] = None,
     ) -> VGroup:
         """Vertical dashed line at *x_crit* with an optional label."""
         z_val = float(np.interp(x_crit, self.xs, self.zs))
@@ -1534,7 +1534,7 @@ class TimeSeriesPlot3D(VGroup):
         tick_labels: Optional[Sequence[str]] = None,
         y_position: float = 0.0,
         config: Optional[LineConfig] = None,
-        scene: Optional[ThreeDScene] = None,
+        scene: Optional[Scene] = None,
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -1566,7 +1566,7 @@ class TimeSeriesPlot3D(VGroup):
     def _build_tick_labels(
         self,
         labels: Sequence[str],
-        scene: Optional[ThreeDScene],
+        scene: Optional[Scene],
     ) -> None:
         tick_col = _with_opacity(self.cfg.color, 0.55)
         self.ticks = VGroup()
@@ -1631,7 +1631,7 @@ class TimeSeriesPlot3D(VGroup):
         x: float,
         label: str = "",
         color: ManimColor = ManimColor("#9B59B6"),
-        scene: Optional[ThreeDScene] = None,
+        scene: Optional[Scene] = None,
     ) -> VGroup:
         """Vertical dashed line marking a specific time point."""
         z_max = float(self.zs.max()) * 1.08
@@ -1740,7 +1740,7 @@ class ParametricLine3D(VGroup):
         z_func: Callable[[float], float],
         t_range: Tuple[float, float, float] = (0, TAU, 0.05),
         config: Optional[LineConfig] = None,
-        scene: Optional[ThreeDScene] = None,
+        scene: Optional[Scene] = None,
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -1833,7 +1833,7 @@ def line_from_function(
     x_range: Tuple[float, float, float] = (0, 5, 0.1),
     y_position: float = 0.0,
     config: Optional[LineConfig] = None,
-    scene: Optional[ThreeDScene] = None,
+    scene: Optional[Scene] = None,
 ) -> LineSeries3D:
     """Build a ``LineSeries3D`` from a scalar function f(x) → z.
 
@@ -1871,7 +1871,7 @@ def parametric_helix(
     height: float = 3.0,
     turns: float = 3.0,
     color: ManimColor = ManimColor("#4A90D9"),
-    scene: Optional[ThreeDScene] = None,
+    scene: Optional[Scene] = None,
 ) -> ParametricLine3D:
     """Factory for a standard helix — useful as a demo or annotation path."""
     cfg = LineConfig(
