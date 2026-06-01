@@ -1,0 +1,60 @@
+[build-system]
+requires      = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name            = "statanim"
+version         = "0.1.0"
+description     = "A Manim extension for animated statistical visualisations — distributions, regression, probability, inference and more."
+readme          = "README.md"
+license         = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors         = [
+    { name = "Rishabh Bhartiya", email = "rishabh.bhartiya.in@gmail.com" }
+]
+keywords = [
+    "manim", "statistics", "animation", "data-science",
+    "probability", "regression", "distribution", "education",
+    "visualisation", "math"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Topic :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "manim>=0.18.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+]
+
+[project.optional-dependencies]
+dev = [
+    "build",
+    "twine",
+    "pytest>=7.0",
+    "pytest-cov",
+]
+
+[project.urls]
+Homepage      = "https://github.com/rishabhbhartiya/statanim"
+Documentation = "https://github.com/rishabhbhartiya/statanim/blob/main/API_REFERENCE.md"
+"Bug Tracker" = "https://github.com/rishabhbhartiya/statanim/issues"
+"Source Code" = "https://github.com/rishabhbhartiya/statanim"
+
+[tool.setuptools.packages.find]
+where   = ["."]
+include = ["statanim*"]
+exclude = ["sample*", "examples*", "videos*", "tests*"]
+
+[tool.setuptools.package-data]
+statanim = ["py.typed"]

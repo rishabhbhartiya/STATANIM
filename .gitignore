@@ -1,24 +1,50 @@
-# Manim output
-media/
-
-# Python cache
-__pycache__/
-*.pyc
-*.py[cod]
-*.pyo
-
-# Package build
-*.egg-info/
-build/
+# ── Build / distribution ──────────────────────────────────────────
 dist/
-.eggs/
+build/
+*.egg-info/
+*.egg
 
-# IDE
-.vscode/
+# ── Python ────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.Python
+
+# ── Virtual environments ──────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Manim output (generated during rendering — NOT the videos/ folder)
+media/
+Tex/
+partial_movie_files/
+*.gif
+*.mov
+*.avi
+*.webm
+# NOTE: *.mp4 is intentionally NOT ignored
+#       videos/ (1.7 MB) is kept in the repo for GitHub README display
+
+# ── macOS ─────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ── IDE ───────────────────────────────────────────────────────────
+.vscode/settings.json
 .idea/
 *.swp
 *.swo
 
-# OS
-.DS_Store
-Thumbs.db
+# ── Testing / coverage ────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# ── Type checking ─────────────────────────────────────────────────
+.mypy_cache/
+.pyright/

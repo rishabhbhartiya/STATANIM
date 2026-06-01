@@ -86,7 +86,7 @@
 
 ## `animations/clt_demo.py`
 
-*manim_stats/animations/clt_demo.py
+*statanimimations/clt_demo.py
 ====================================
 Central Limit Theorem demonstration animations.
 
@@ -149,7 +149,7 @@ Usage
     #   manim -pql clt_demo.py CLTUniformScene
 
     # Or embed phases into your own scene:
-    from manim_stats.animations.clt_demo import CLTDemo, CLTConfig
+    from statanimimations.clt_demo import CLTDemo, CLTConfig
 
     class MyScene(ThreeDScene):
         def construct(self):
@@ -1134,7 +1134,7 @@ Callable[[int], np.ndarray]
 
 ## `animations/sampling.py`
 
-*manim_stats/animations/sampling.py
+*statanimimations/sampling.py
 =====================================
 Animated sampling from distributions — visualising how samples are
 drawn, how sampling methods differ, and how sample statistics vary.
@@ -1212,7 +1212,7 @@ Usage
     #   manim -pql sampling.py StratifiedScene
 
     # Embed in your own scene:
-    from manim_stats.animations.sampling import StratifiedSampling3D
+    from statanimimations.sampling import StratifiedSampling3D
 
     class MyScene(ThreeDScene):
         def construct(self):
@@ -2489,7 +2489,7 @@ Render:  manim -pql sampling.py BootstrapScene
 
 ## `animations/transitions.py`
 
-*manim_stats/animations/transitions.py
+*statanimimations/transitions.py
 =======================================
 Reusable transition and morphing animations for statistical visualizations.
 
@@ -2569,8 +2569,8 @@ collapse_to_mean    – quick CollapseToMean3D.build() call
 
 Usage
 -----
-    from manim_stats.animations.transitions import DistMorph3D, ParameterSweep3D
-    from manim_stats.charts.line_plot3d import line_from_function, PDF_LINE
+    from statanimimations.transitions import DistMorph3D, ParameterSweep3D
+    from statanimarts.line_plot3d import line_from_function, PDF_LINE
     import numpy as np
 
     class MyScene(ThreeDScene):
@@ -3671,7 +3671,7 @@ Example
 
 ## `axes/axes3d.py`
 
-*manim_stats/axes/axes3d.py
+*statanimes/axes3d.py
 ==========================
 Master 3-D axes system for the Manim Statistics Extension.
 
@@ -4678,7 +4678,7 @@ Grid shows critical region spans.
 
 ## `axes/grid3d.py`
 
-*manim_stats/axes/grid3d.py
+*statanimes/grid3d.py
 ==========================
 Production-quality 3D grid system for statistical visualizations.
 
@@ -4719,7 +4719,7 @@ GridSnapHelper
 Usage example
 -------------
     from manim import *
-    from manim_stats.axes.grid3d import FullGrid3D, GridConfig
+    from statanimes.grid3d import FullGrid3D, GridConfig
 
     class Demo(ThreeDScene):
         def construct(self):
@@ -5302,7 +5302,7 @@ Example
 
 ## `axes/number_plane3d.py`
 
-*manim_stats/axes/number_plane3d.py
+*statanimes/number_plane3d.py
 ===================================
 Full 3-D number plane system for the Manim Statistics Extension.
 
@@ -6158,7 +6158,7 @@ displaying a 1-D probability distribution curve on a given face.
 
 ## `charts/bar_chart3d.py`
 
-*manim_stats/charts/bar_chart3d.py
+*statanimarts/bar_chart3d.py
 ==================================
 Production-quality 3D bar charts for statistical visualizations.
 
@@ -6178,7 +6178,7 @@ The chart system is layered:
     StackedBarChart3D   – k series × N categories, bars stacked in z
 
 All charts integrate cleanly with ``FullGrid3D`` / ``GridSnapHelper``
-from ``manim_stats.axes.grid3d``.
+from ``statanimes.grid3d``.
 
 Classes
 -------
@@ -6196,8 +6196,8 @@ _ValueLabel3D
 Usage example
 -------------
     from manim import *
-    from manim_stats.axes.grid3d import FullGrid3D
-    from manim_stats.charts.bar_chart3d import BarChart3D, BarConfig
+    from statanimes.grid3d import FullGrid3D
+    from statanimarts.bar_chart3d import BarChart3D, BarConfig
 
     class DemoBar(ThreeDScene):
         def construct(self):
@@ -7024,7 +7024,7 @@ GroupedBarChart3D
 
 ## `charts/box_plot3d.py`
 
-*manim_stats/charts/box_plot3d.py
+*statanimarts/box_plot3d.py
 =================================
 Production-quality 3D box plots for statistical visualizations.
 
@@ -7071,8 +7071,8 @@ SignificanceBracket3D
 Usage examples
 --------------
     from manim import *
-    from manim_stats.axes.grid3d import FullGrid3D
-    from manim_stats.charts.box_plot3d import BoxPlotGroup3D
+    from statanimes.grid3d import FullGrid3D
+    from statanimarts.box_plot3d import BoxPlotGroup3D
 
     class DemoBox(ThreeDScene):
         def construct(self):
@@ -8144,7 +8144,7 @@ Example
 
 ## `charts/heat_map3d.py`
 
-*manim_stats/charts/heat_map3d.py
+*statanimarts/heat_map3d.py
 ==================================
 A production-quality 3D heat map for Manim with:
 
@@ -8154,7 +8154,7 @@ A production-quality 3D heat map for Manim with:
     value — dual encoding (height + color) for stronger visual differentiation
   - Three shaded faces per prism: top (primary color), front side (darkened),
     right side (more darkened) — same physically-shaded idiom used across
-    the manim_stats module
+    the statanimdule
   - Masked cells (e.g. upper triangle of a correlation matrix) rendered as
     flat hatched polygons, visually distinct from data cells
   - Optional flat mode: disable height encoding, render all cells at uniform
@@ -8680,7 +8680,7 @@ Basic usage
 -----------
 >>> import numpy as np
 >>> from manim import *
->>> from manim_stats.charts.heat_map3d import HeatMap3D, HeatMapConfig
+>>> from statanimarts.heat_map3d import HeatMap3D, HeatMapConfig
 >>>
 >>> class MyScene(ThreeDScene):
 ...     def construct(self):
@@ -9071,7 +9071,7 @@ Returns a value in [0, 1]; 0 = black, 1 = white.
 
 ## `charts/histogram3d.py`
 
-*manim_stats/charts/histogram3d.py
+*statanimarts/histogram3d.py
 ==================================
 A production-quality 3D histogram for Manim with:
   - Physically shaded 3D bar prisms (front/side/top faces with distinct shading)
@@ -9392,7 +9392,7 @@ Usage
 -----
 >>> import numpy as np
 >>> from manim import *
->>> from manim_stats.charts.histogram3d import Histogram3D, HistogramConfig
+>>> from statanimarts.histogram3d import Histogram3D, HistogramConfig
 >>>
 >>> class MyScene(ThreeDScene):
 ...     def construct(self):
@@ -9628,7 +9628,7 @@ convergence of the CLT::
 
 ## `charts/line_plot3d.py`
 
-*manim_stats/charts/line_plot3d.py
+*statanimarts/line_plot3d.py
 ==================================
 Production-quality 3D line plots for statistical visualizations.
 
@@ -9676,8 +9676,8 @@ Usage examples
 --------------
     # Basic multi-series line plot
     from manim import *
-    from manim_stats.axes.grid3d import FullGrid3D
-    from manim_stats.charts.line_plot3d import MultiLinePlot3D
+    from statanimes.grid3d import FullGrid3D
+    from statanimarts.line_plot3d import MultiLinePlot3D
 
     class DemoLine(ThreeDScene):
         def construct(self):
@@ -9695,11 +9695,11 @@ Usage examples
             self.wait()
 
     # CDF with shaded tail
-    from manim_stats.charts.line_plot3d import CDFLine3D
+    from statanimarts.line_plot3d import CDFLine3D
     cdf = CDFLine3D(x_values=xs, cdf_values=ys, shade_above=1.96)
 
     # Parametric space curve
-    from manim_stats.charts.line_plot3d import ParametricLine3D
+    from statanimarts.line_plot3d import ParametricLine3D
     helix = ParametricLine3D(
         x_func=lambda t: np.cos(t),
         y_func=lambda t: np.sin(t),
@@ -10654,7 +10654,7 @@ Example
 
 ## `charts/scatter_plot3d.py`
 
-*manim_stats/charts/scatter_plot3d.py
+*statanimarts/scatter_plot3d.py
 =====================================
 A production-quality 3D scatter plot for Manim with:
   - Point glyphs rendered as 3D spheres or flat diamonds, with optional
@@ -11147,7 +11147,7 @@ Basic usage (single series)
 ---------------------------
 >>> import numpy as np
 >>> from manim import *
->>> from manim_stats.charts.scatter_plot3d import ScatterPlot3D, ScatterConfig, ScatterSeries
+>>> from statanimarts.scatter_plot3d import ScatterPlot3D, ScatterConfig, ScatterSeries
 >>>
 >>> class MyScene(ThreeDScene):
 ...     def construct(self):
@@ -11439,7 +11439,7 @@ Requires ``show_regression_plane=True``.
 
 ## `charts/violin_plot3d.py`
 
-*manim_stats/charts/violin_plot3d.py
+*statanimarts/violin_plot3d.py
 =====================================
 A production-quality 3D violin plot for Manim with:
 
@@ -12025,7 +12025,7 @@ Basic usage
 -----------
 >>> import numpy as np
 >>> from manim import *
->>> from manim_stats.charts.violin_plot3d import ViolinPlot3D, ViolinConfig, ViolinGroup
+>>> from statanimarts.violin_plot3d import ViolinPlot3D, ViolinConfig, ViolinGroup
 >>>
 >>> class MyScene(ThreeDScene):
 ...     def construct(self):
@@ -12355,7 +12355,7 @@ kde : the fitted scipy gaussian_kde object (for on-demand evaluation)
 
 ## `core/base.py`
 
-*manim_stats/core/base.py
+*statanimre/base.py
 ========================
 Master base layer for the Manim Statistics Extension.
 
@@ -13441,7 +13441,7 @@ Subclasses (Die3D, Coin3D) override with physics-like rotations.
 
 ## `core/colors.py`
 
-*manim_stats/core/colors.py
+*statanimre/colors.py
 ==========================
 A full-featured, multi-layer color system for statistical visualization.
 
@@ -13455,7 +13455,7 @@ Architecture
 
 Usage
 -----
-    from manim_stats.core.colors import DARK_THEME, NORMAL_FAMILY, StatColor
+    from statanimre.colors import DARK_THEME, NORMAL_FAMILY, StatColor
 
     blue = StatColor.from_hex("#185FA5")
     print(blue.luminance)            # 0.107
@@ -14198,7 +14198,7 @@ Examples
 
 ## `core/math_utils.py`
 
-*manim_stats/core/math_utils.py
+*statanimre/math_utils.py
 ================================
 Pure-math utility layer for the Manim Statistics Extension.
 
@@ -15349,7 +15349,7 @@ dict: 'major' array, 'minor' array, 'labels' list of formatted strings
 
 ## `distributions/base_dist.py`
 
-*manim_stats/distributions/base_dist.py
+*statanimstributions/base_dist.py
 ========================================
 Master base layer for every distribution asset in the Manim Statistics Extension.
 
@@ -16551,7 +16551,7 @@ Used for Binomial → Normal CLT demonstrations.
 
 ## `distributions/cdf_viz.py`
 
-*manim_stats/distributions/cdf_viz.py
+*statanimstributions/cdf_viz.py
 ======================================
 Dedicated CDF (Cumulative Distribution Function) visualisation system
 for the Manim Statistics Extension.
@@ -17494,7 +17494,7 @@ For discrete: each step + jump appears with a short delay.
 
 ## `distributions/continuous_dists.py`
 
-*manim_stats/distributions/continuous_dists.py
+*statanimstributions/continuous_dists.py
 ===============================================
 All 14 continuous distribution assets for the Manim Statistics Extension.
 
@@ -18688,7 +18688,7 @@ Returns a VGroup ready to add to any scene.
 
 ## `distributions/discrete_dists.py`
 
-*manim_stats/distributions/discrete_dists.py
+*statanimstributions/discrete_dists.py
 =============================================
 All discrete distribution assets for the Manim Statistics Extension.
 
@@ -19900,7 +19900,7 @@ Used for Normal / Poisson approximation overlays on discrete bars.
 
 ## `distributions/normal3d.py`
 
-*manim_stats/distributions/normal3d.py
+*statanimstributions/normal3d.py
 =======================================
 Univariate and bivariate Normal distribution visualizations.
 
@@ -19956,7 +19956,7 @@ QQPlotScene
 Usage
 -----
     from manim import *
-    from manim_stats.distributions.normal3d import NormalCurve3D, BivariateNormal3D
+    from statanimstributions.normal3d import NormalCurve3D, BivariateNormal3D
 
     class MyScene(ThreeDScene):
         def construct(self):
@@ -20931,7 +20931,7 @@ Render:  manim -pql normal3d.py QQPlotScene
 
 ## `distributions/pdf_viz.py`
 
-*manim_stats/distributions/pdf_viz.py
+*statanimstributions/pdf_viz.py
 ======================================
 Production-quality probability density function visualizer.
 
@@ -21007,7 +21007,7 @@ PDFParameterSweepScene
 Usage
 -----
     from manim import *
-    from manim_stats.distributions.pdf_viz import PDFVisualizer3D, NormalDist
+    from statanimstributions.pdf_viz import PDFVisualizer3D, NormalDist
 
     class MyScene(ThreeDScene):
         def construct(self):
@@ -22489,7 +22489,7 @@ single Polygon (flat mode).
 
 ## `distributions/pmf_viz.py`
 
-*manim_stats/distributions/pmf_viz.py
+*statanimstributions/pmf_viz.py
 ======================================
 Production-quality probability mass function (PMF) visualizer.
 
@@ -22563,7 +22563,7 @@ BinomialNSweepScene
 Usage
 -----
     from manim import *
-    from manim_stats.distributions.pmf_viz import PMFVisualizer3D, BinomialDist
+    from statanimstributions.pmf_viz import PMFVisualizer3D, BinomialDist
 
     class MyScene(ThreeDScene):
         def construct(self):
@@ -23687,7 +23687,7 @@ Render:  manim -pql pmf_viz.py BinomialNSweepScene
 
 ## `inference/confidence_interval.py`
 
-*manim_stats/inference/confidence_interval.py
+*statanimference/confidence_interval.py
 ============================================
 ConfidenceInterval3D — Highly detailed, statistically rich confidence
 interval visualisation for Manim statistics animations.
@@ -23752,7 +23752,7 @@ Dependencies
 
 Usage
 -----
-    from manim_stats.inference.confidence_interval import (
+    from statanimference.confidence_interval import (
         ConfidenceInterval3D, CIStack, BuildCI, RevealCapture, StackCIs
     )
 
@@ -24513,7 +24513,7 @@ CIStack ready for StackCIs animation.
 
 ## `inference/error_types.py`
 
-*manim_stats/inference/error_types.py
+*statanimference/error_types.py
 =====================================
 TypeITypeII — Highly detailed, statistically rigorous visualisation of
 Type I error (α), Type II error (β), and Power (1−β) for Manim
@@ -24594,7 +24594,7 @@ Dependencies
 
 Usage
 -----
-    from manim_stats.inference.error_types import (
+    from statanimference.error_types import (
         TypeITypeII, BuildDistributions, RevealAll, NarrowCurves
     )
 
@@ -25344,7 +25344,7 @@ VGroup — rows × columns grid of TypeITypeII objects.
 
 ## `inference/hypothesis.py`
 
-*manim_stats/inference/hypothesis.py
+*statanimference/hypothesis.py
 ====================================
 HypothesisTest3D — A highly detailed, statistically rigorous hypothesis
 test visualisation for Manim statistics animations.
@@ -25433,7 +25433,7 @@ Dependencies
 
 Usage
 -----
-    from manim_stats.inference.hypothesis import (
+    from statanimference.hypothesis import (
         HypothesisTest3D, BuildTest, DropStatistic,
         RevealPValue, RevealDecision
     )
@@ -26209,7 +26209,7 @@ Returns a Succession ready to pass to scene.play().
 
 ## `inference/sampling_dist.py`
 
-*manim_stats/inference/sampling_dist.py
+*statanimference/sampling_dist.py
 ========================================
 SamplingDistribution3D — A highly detailed, animated Central Limit
 Theorem and sampling distribution visualisation for Manim.
@@ -26296,7 +26296,7 @@ Dependencies
 
 Usage
 -----
-    from manim_stats.inference.sampling_dist import (
+    from statanimference.sampling_dist import (
         SamplingDistribution3D, RunCLT, NarrowSE
     )
 
@@ -27169,7 +27169,7 @@ VGroup of SamplingDistribution3D objects with n labels.
 
 ## `probability/bayes.py`
 
-*manim_stats/probability/bayes.py
+*statanimobability/bayes.py
 ==================================
 Production-quality Bayesian reasoning visualizations for Manim.
 
@@ -28103,7 +28103,7 @@ Typical use::
 
 ## `probability/prob_tree.py`
 
-*manim_stats/probability/prob_tree.py
+*statanimobability/prob_tree.py
 ======================================
 Production-quality 3D probability tree visualizations for Manim.
 
@@ -28625,7 +28625,7 @@ and optional mini probability bars.
 Basic usage
 -----------
 >>> from manim import *
->>> from manim_stats.probability.prob_tree import (
+>>> from statanimobability.prob_tree import (
 ...     ProbabilityTree3D, ProbTreeNode, ProbTreeConfig
 ... )
 >>>
@@ -29006,7 +29006,7 @@ Example
 
 ## `probability/sample_space.py`
 
-*manim_stats/probability/sample_space.py
+*statanimobability/sample_space.py
 =========================================
 Production-quality 3D sample space and event visualization for Manim.
 
@@ -29531,7 +29531,7 @@ optional discrete outcome grid, and probability axis.
 Basic usage (continuous events)
 --------------------------------
 >>> from manim import *
->>> from manim_stats.probability.sample_space import (
+>>> from statanimobability.sample_space import (
 ...     SampleSpace3D, SampleSpaceConfig
 ... )
 >>>
@@ -29889,7 +29889,7 @@ Lays out a 2-event Venn with A and B, ready for
 
 ## `probability/venn3d.py`
 
-*manim_stats/probability/venn3d.py
+*statanimobability/venn3d.py
 ===================================
 Production-quality 3D Venn diagram visualizations for Manim.
 
@@ -30505,7 +30505,7 @@ and a comprehensive animation API.
 Basic 2-set usage
 -----------------
 >>> from manim import *
->>> from manim_stats.probability.venn3d import (
+>>> from statanimobability.venn3d import (
 ...     VennDiagram3D, VennData2, VennConfig
 ... )
 >>>
@@ -30940,7 +30940,7 @@ Value is (arc_def_list, centroid_xz).
 
 ## `props/card.py`
 
-*manim_stats/props/card.py
+*statanimops/card.py
 =========================
 Physically accurate, animation-rich playing-card props for statistical scenes.
 
@@ -32385,7 +32385,7 @@ Returns
 
 ## `props/coin.py`
 
-*manim_stats/props/coin.py
+*statanimops/coin.py
 =========================
 Coin3D — A highly detailed, physically-realistic 3D coin for use in
 Manim statistics animations (Bernoulli trials, Binomial distributions,
@@ -32411,7 +32411,7 @@ Dependencies
 
 Usage
 -----
-    from manim_stats.props.coin import Coin3D, FlipCoin, TumbleCoin
+    from statanimops.coin import Coin3D, FlipCoin, TumbleCoin
 
     class BernoulliScene(ThreeDScene):
         def construct(self):
@@ -32933,7 +32933,7 @@ v_spacing  : vertical gap
 
 ## `props/die.py`
 
-*manim_stats/props/die.py
+*statanimops/die.py
 ========================
 Die3D — Highly detailed, physically-realistic polyhedral dice for Manim
 statistics animations.
@@ -32980,7 +32980,7 @@ Dependencies
 
 Usage
 -----
-    from manim_stats.props.die import Die3D, RollDie, ThrowDie
+    from statanimops.die import Die3D, RollDie, ThrowDie
 
     class UniformDiscreteScene(ThreeDScene):
         def construct(self):
@@ -33612,7 +33612,7 @@ VGroup, centred at origin.
 
 ## `props/spinner.py`
 
-*manim_stats/props/spinner.py
+*statanimops/spinner.py
 ============================
 Spinner3D — A highly detailed, physically-inspired probability spinner
 for Manim statistics animations.
@@ -33677,7 +33677,7 @@ Dependencies
 
 Usage
 -----
-    from manim_stats.props.spinner import Spinner3D, SpinToOutcome
+    from statanimops.spinner import Spinner3D, SpinToOutcome
 
     class GeometricScene(ThreeDScene):
         def construct(self):
@@ -34377,7 +34377,7 @@ current_state    : index of the "from" state (used only for display)
 
 ## `props/urn.py`
 
-*manim_stats/props/urn.py
+*statanimops/urn.py
 ========================
 Urn3D & Ball3D — Highly detailed, physically-inspired 3D urn and ball
 props for Manim statistics animations.
@@ -34430,7 +34430,7 @@ Dependencies
 
 Usage
 -----
-    from manim_stats.props.urn import Urn3D, Ball3D, DrawBall, FillUrn
+    from statanimops.urn import Urn3D, Ball3D, DrawBall, FillUrn
 
     class HypergeometricScene(ThreeDScene):
         def construct(self):
@@ -35163,7 +35163,7 @@ urn1, urn2, balls1, balls2
 
 ## `regression/correlation.py`
 
-*manim_stats/regression/correlation.py
+*statanimgression/correlation.py
 ======================================
 Correlation analysis, OLS regression fitting, diagnostic measures,
 and Manim visualisation mobjects for the regression / correlation topic area.
@@ -36666,7 +36666,7 @@ Returns
 
 ## `regression/regression_plane.py`
 
-*manim_stats/regression/regression_plane.py
+*statanimgression/regression_plane.py
 ==========================================
 Three-dimensional regression plane visualisation for multiple linear regression
 with two predictors.  Extends the 2-D work in ``correlation.py`` into full 3-D.
@@ -36728,10 +36728,10 @@ Typical usage
 -------------
 ::
 
-    from manim_stats.regression.regression_plane import (
+    from statanimgression.regression_plane import (
         RegressionPlane3D, ScatterCloud3D, PlaneResiduals3D, build_plane_scene,
     )
-    from manim_stats.regression.correlation import ols_fit
+    from statanimgression.correlation import ols_fit
     import numpy as np
 
     class MyScene(ThreeDScene):
@@ -37784,7 +37784,7 @@ run_time : float
 
 ## `regression/residuals.py`
 
-*manim_stats/regression/residuals.py
+*statanimgression/residuals.py
 =====================================
 Residual analysis, diagnostic test statistics, and Manim diagnostic-plot
 mobjects for OLS regression assumption checking.
@@ -39191,7 +39191,7 @@ RegressionResult — the re-fitted model.
 
 ## `scenes/demo_bayes.py`
 
-*manim_stats/scenes/demo_bayes.py
+*statanimenes/demo_bayes.py
 ==================================
 BayesDemo — A complete, cinematic Bayes' theorem demonstration scene.
 
@@ -39254,7 +39254,7 @@ Act 9  Decision and summary
 
 Scene uses
 ----------
-  manim_stats.props.urn    — Urn3D, Ball3D, DrawBall, ShakeUrn, FillUrn
+  statanimops.urn    — Urn3D, Ball3D, DrawBall, ShakeUrn, FillUrn
   (all other components built inline for self-contained demo)
 
 Dependencies
@@ -39863,7 +39863,7 @@ Layers: shadow, body, specular, label.
 
 ## `scenes/demo_clt.py`
 
-*manim_stats/scenes/demo_clt.py
+*statanimenes/demo_clt.py
 ================================
 CLTDemo — A complete, cinematic Central Limit Theorem demonstration scene.
 
@@ -39924,7 +39924,7 @@ Act 8  CLT formal statement + closing
 
 Scene uses
 ----------
-  manim_stats.inference.sampling_dist  — SamplingDistribution3D,
+  statanimference.sampling_dist  — SamplingDistribution3D,
     BuildPopulation, RunCLT, NarrowSE, ConvergenceRace,
     make_n_effect_row, make_clt_comparison
 
@@ -40285,7 +40285,7 @@ MU_POP = 1.0
   - `self._sd = SamplingDistribution3D.exponential(lam=1.0, n=self.N_MAIN, n_bins=18, pop_panel_w=3.8, hist_panel...`
 - *Local variables:*
   - `act_lbl = _section_label('Act 3 — Building the Histogram')`
-  - `msg = Text('(Install manim_stats to see live CLT simulation)', font_size=20, color=P['subtitle'])`
+  - `msg = Text('(Install statanim see live CLT simulation)', font_size=20, color=P['subtitle'])`
   - `sigma_n = self.SIGMA_POP / np.sqrt(self.N_MAIN)`
   - `counter = _LiveCounter(k=0, se_val=sigma_n, n=self.N_MAIN)`
   - `new_counter = _LiveCounter(k=k, se_val=sigma_n, n=self.N_MAIN)`
@@ -40396,7 +40396,7 @@ MU_POP = 1.0
 
 ## `scenes/demo_distributions.py`
 
-*manim_stats/scenes/demo_distributions.py
+*statanimenes/demo_distributions.py
 ==========================================
 DistributionsDemo — A complete, cinematic probability distributions
 showcase scene for Manim statistics animations.
@@ -40990,7 +40990,7 @@ For high quality:
 
 ## `scenes/demo_hypothesis.py`
 
-*manim_stats/scenes/demo_hypothesis.py
+*statanimenes/demo_hypothesis.py
 =======================================
 HypothesisDemo — A complete, cinematic hypothesis testing demonstration
 scene for Manim statistics animations.
@@ -41045,10 +41045,10 @@ Act 6  Decision framework + closing
 
 Scene uses
 ----------
-  manim_stats.inference.hypothesis   — HypothesisTest3D, BuildTest,
+  statanimference.hypothesis   — HypothesisTest3D, BuildTest,
     DropStatistic, RevealPValue, RevealDecision, BuildInfoPanel,
     SweepStatistic, ChangeAlpha, make_full_sequence, compare_tests
-  manim_stats.inference.error_types  — TypeITypeII, NarrowCurves,
+  statanimference.error_types  — TypeITypeII, NarrowCurves,
     RevealAll, FlashDecision
 
 Dependencies
@@ -41549,11 +41549,11 @@ For high quality:
 
 ## `ui/labels.py`
 
-*manim_stats/ui/labels.py
+*statanim/labels.py
 ==========================
 Production-quality floating annotation and UI overlay objects for Manim.
 Every text/label primitive needed to annotate the charts, distributions,
-and probability objects across the full manim_stats module lives here.
+and probability objects across the full statanimdule lives here.
 
 Objects
 -------
@@ -42578,7 +42578,7 @@ sci_thresh : float
 
 ## `ui/panels.py`
 
-*manim_stats/ui/panels.py
+*statanim/panels.py
 ==========================
 Production-quality floating panel and dashboard overlay objects for Manim.
 Where ``labels.py`` provides individual annotation badges, this module
@@ -43647,7 +43647,7 @@ config : PanelConfig | None
 
 ## `ui/table3d.py`
 
-*manim_stats/ui/table3d.py
+*statanim/table3d.py
 ===========================
 Production-quality floating 3D data table for Manim.
 
@@ -44231,7 +44231,7 @@ a summary row, and pagination.
 Basic usage
 -----------
 >>> from manim import *
->>> from manim_stats.ui.table3d import DataTable3D, TableColumn, TableConfig
+>>> from statanim.table3d import DataTable3D, TableColumn, TableConfig
 >>>
 >>> class MyScene(ThreeDScene):
 ...     def construct(self):
@@ -44720,7 +44720,7 @@ Columns produced: Category | Frequency | Rel. Freq (%) | Cum. Freq | Cum. %
 
 ## `ui/ticker.py`
 
-*manim_stats/ui/ticker.py
+*statanim/ticker.py
 =========================
 Animated statistical value counters ("tickers") for Manim scenes.
 

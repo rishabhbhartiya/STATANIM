@@ -8,7 +8,7 @@ A comprehensive 3D visualization framework for statistical concepts, probability
 
 ## 🎯 Overview
 
-`manim_stats` extends Manim's animation capabilities to create publication-quality visualizations for:
+`statanim` extends Manim's animation capabilities to create publication-quality visualizations for:
 
 - **Probability Distributions** (Normal, Binomial, Poisson, Exponential, etc.)
 - **Statistical Inference** (Hypothesis testing, confidence intervals, sampling distributions)
@@ -47,12 +47,12 @@ sudo apt-get install texlive-full
 # Windows: Install MiKTeX from https://miktex.org/
 ```
 
-### Install manim_stats
+### Install statanim
 
 ```bash
 # From source (recommended for development)
-git clone https://github.com/yourusername/manim_stats.git
-cd manim_stats
+git clone https://github.com/yourusername/statanim.git
+cd statanim
 pip install -e .
 
 # Or via pip (when published)
@@ -63,7 +63,7 @@ pip install manim-stats
 
 ```python
 from manim import *
-from manim_stats import Normal3D, Coin, BayesianUpdater
+from statanim import Normal3D, Coin, BayesianUpdater
 
 # If no errors, you're ready!
 ```
@@ -76,8 +76,8 @@ from manim_stats import Normal3D, Coin, BayesianUpdater
 
 ```python
 from manim import *
-from manim_stats.distributions import Normal3D
-from manim_stats.axes import Axes3D
+from statanim.distributions import Normal3D
+from statanim.axes import Axes3D
 
 class NormalDemo(ThreeDScene):
     def construct(self):
@@ -117,8 +117,8 @@ class NormalDemo(ThreeDScene):
 
 ```python
 from manim import *
-from manim_stats.animations import CLTDemo
-from manim_stats.distributions import UniformDistribution, Normal3D
+from statanim.animations import CLTDemo
+from statanim.distributions import UniformDistribution, Normal3D
 
 class CLTScene(Scene):
     def construct(self):
@@ -140,8 +140,8 @@ class CLTScene(Scene):
 
 ```python
 from manim import *
-from manim_stats.probability import BayesianUpdater
-from manim_stats.animations import BayesianAnimation
+from statanim.probability import BayesianUpdater
+from statanim.animations import BayesianAnimation
 
 class BayesDemo(Scene):
     def construct(self):
@@ -175,7 +175,7 @@ class BayesDemo(Scene):
 ### Module Structure
 
 ```
-manim_stats/
+statanim/
 ├── animations/          # Preset statistical animations
 │   ├── clt_demo.py      # Central Limit Theorem demonstrations
 │   ├── flip_roll.py     # Stochastic process animations
@@ -257,7 +257,7 @@ manim_stats/
 All statistical objects inherit from base classes that provide common functionality:
 
 ```python
-from manim_stats.core.base import StatisticalObject
+from statanim.core.base import StatisticalObject
 
 class MyDistribution(StatisticalObject):
     def __init__(self, **kwargs):
@@ -279,7 +279,7 @@ class MyDistribution(StatisticalObject):
 Distributions are first-class objects with built-in sampling and probability methods:
 
 ```python
-from manim_stats.distributions import Normal3D, Binomial
+from statanim.distributions import Normal3D, Binomial
 
 # Continuous distribution
 normal = Normal3D(mean=100, std=15)
@@ -296,7 +296,7 @@ pmf_values = binomial.get_pmf_values()
 Distributions can automatically visualize probabilities:
 
 ```python
-from manim_stats.distributions import Exponential3D
+from statanim.distributions import Exponential3D
 
 exp_dist = Exponential3D(lambda_param=1.5)
 
@@ -314,7 +314,7 @@ shaded = exp_dist.shade_tail(
 Preset animations for common demonstrations:
 
 ```python
-from manim_stats.animations import SamplingAnimation
+from statanim.animations import SamplingAnimation
 
 # Animate drawing samples from a distribution
 sampling = SamplingAnimation(
@@ -334,7 +334,7 @@ self.play(sampling.run())
 ### Custom Distribution Implementation
 
 ```python
-from manim_stats.distributions.base_dist import ContinuousDistribution
+from statanim.distributions.base_dist import ContinuousDistribution
 import numpy as np
 
 class CustomDistribution(ContinuousDistribution):
@@ -365,8 +365,8 @@ class CustomDistribution(ContinuousDistribution):
 ### Interactive Hypothesis Testing
 
 ```python
-from manim_stats.inference import HypothesisTest
-from manim_stats.distributions import TDistribution
+from statanim.inference import HypothesisTest
+from statanim.distributions import TDistribution
 
 class TTestVisualization(Scene):
     def construct(self):
@@ -394,8 +394,8 @@ class TTestVisualization(Scene):
 ### Multivariate Visualizations
 
 ```python
-from manim_stats.charts import Scatter3D
-from manim_stats.regression import RegressionPlane
+from statanim.charts import Scatter3D
+from statanim.regression import RegressionPlane
 
 class MultivariateDemo(ThreeDScene):
     def construct(self):
@@ -437,7 +437,7 @@ class MultivariateDemo(ThreeDScene):
 ### Bayesian Network Visualization
 
 ```python
-from manim_stats.probability import ProbabilityTree, BayesNet
+from statanim.probability import ProbabilityTree, BayesNet
 
 class BayesNetDemo(Scene):
     def construct(self):
@@ -473,8 +473,8 @@ class BayesNetDemo(Scene):
 ### Recipe 1: Confidence Interval Construction
 
 ```python
-from manim_stats.inference import ConfidenceInterval
-from manim_stats.animations import SamplingDistributionBuilder
+from statanim.inference import ConfidenceInterval
+from statanim.animations import SamplingDistributionBuilder
 
 class CIConstruction(Scene):
     def construct(self):
@@ -503,7 +503,7 @@ class CIConstruction(Scene):
 ### Recipe 2: Type I and Type II Errors
 
 ```python
-from manim_stats.inference import ErrorVisualization
+from statanim.inference import ErrorVisualization
 
 class ErrorTypes(Scene):
     def construct(self):
@@ -528,8 +528,8 @@ class ErrorTypes(Scene):
 ### Recipe 3: Monte Carlo Simulation
 
 ```python
-from manim_stats.props import Die, Coin
-from manim_stats.animations import MonteCarloSimulation
+from statanim.props import Die, Coin
+from statanim.animations import MonteCarloSimulation
 
 class MonteCarloDemo(Scene):
     def construct(self):
@@ -557,7 +557,7 @@ class MonteCarloDemo(Scene):
 ### Built-in Statistical Color Palettes
 
 ```python
-from manim_stats.core.colors import (
+from statanim.core.colors import (
     STAT_BLUE,      # Primary distribution color
     STAT_RED,       # Rejection region
     STAT_GREEN,     # Acceptance region
@@ -578,7 +578,7 @@ chart = BarChart3D(data=[1,2,3,4], colors=CATEGORICAL)
 ### Custom Color Mapping
 
 ```python
-from manim_stats.core.colors import create_color_gradient
+from statanim.core.colors import create_color_gradient
 
 # Create custom gradient
 gradient = create_color_gradient(
@@ -603,7 +603,7 @@ histogram = Histogram3D(
 
 ```python
 import pandas as pd
-from manim_stats.charts import Scatter3D, Histogram3D
+from statanim.charts import Scatter3D, Histogram3D
 
 class DataVisualization(ThreeDScene):
     def construct(self):
@@ -628,7 +628,7 @@ class DataVisualization(ThreeDScene):
 ### Statistical Summary Tables
 
 ```python
-from manim_stats.ui import SummaryTable
+from statanim.ui import SummaryTable
 
 class SummaryDemo(Scene):
     def construct(self):
@@ -651,7 +651,7 @@ class SummaryDemo(Scene):
 
 ```python
 import unittest
-from manim_stats.distributions import Normal3D
+from statanim.distributions import Normal3D
 
 class TestNormal3D(unittest.TestCase):
     def test_pdf_integration(self):
@@ -671,7 +671,7 @@ class TestNormal3D(unittest.TestCase):
 
 ```python
 # tests/test_visual_regression.py
-from manim_stats.testing import VisualTest
+from statanim.testing import VisualTest
 
 class TestDistributions(VisualTest):
     def test_normal_rendering(self):
@@ -686,10 +686,10 @@ class TestDistributions(VisualTest):
 
 ### Global Settings
 
-Create `manim_stats_config.py`:
+Create `statanim_config.py`:
 
 ```python
-from manim_stats.config import Config
+from statanim.config import Config
 
 Config.set_defaults(
     # Rendering
@@ -731,12 +731,12 @@ See [API_REFERENCE.md](./API_REFERENCE.md) for complete API documentation.
 
 **Key Modules:**
 
-- **Distributions**: `manim_stats.distributions.*`
-- **Charts**: `manim_stats.charts.*`
-- **Inference**: `manim_stats.inference.*`
-- **Probability**: `manim_stats.probability.*`
-- **Props**: `manim_stats.props.*`
-- **Animations**: `manim_stats.animations.*`
+- **Distributions**: `statanim.distributions.*`
+- **Charts**: `statanim.charts.*`
+- **Inference**: `statanim.inference.*`
+- **Probability**: `statanim.probability.*`
+- **Props**: `statanim.props.*`
+- **Animations**: `statanim.animations.*`
 
 ---
 
@@ -748,8 +748,8 @@ We welcome contributions! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for gu
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/manim_stats.git
-cd manim_stats
+git clone https://github.com/yourusername/statanim.git
+cd statanim
 
 # Create virtual environment
 python -m venv venv
@@ -762,9 +762,9 @@ pip install -e ".[dev]"
 pytest tests/
 
 # Check code style
-black manim_stats/
-flake8 manim_stats/
-mypy manim_stats/
+black statanim/
+flake8 statanim/
+mypy statanim/
 ```
 
 ### Adding New Distributions
@@ -852,7 +852,7 @@ normal = Normal3D(mean=0, std=1, resolution=50)  # Instead of 100
 **Issue: Colors don't match between objects**
 ```python
 # Solution: Use color scheme manager
-from manim_stats.core.colors import StatColorScheme
+from statanim.core.colors import StatColorScheme
 scheme = StatColorScheme("viridis")
 normal = Normal3D(color=scheme.primary)
 ```
@@ -910,10 +910,10 @@ MIT License - see [LICENSE](./LICENSE) for details.
 
 ## 📞 Contact & Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/manim_stats/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/manim_stats/discussions)
+- **Issues**: [GitHub Issues](https://github.com/yourusername/statanim/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/statanim/discussions)
 - **Email**: stats-manim@example.com
-- **Twitter**: [@manim_stats](https://twitter.com/manim_stats)
+- **Twitter**: [@statanim](https://twitter.com/statanim)
 
 ---
 
