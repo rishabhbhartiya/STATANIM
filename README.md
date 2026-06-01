@@ -1,30 +1,6 @@
-<!--
-  statanim — README.md
-  Plain SVG banner, no emojis, professional tone.
--->
-
 <div align="center">
 
-<svg width="720" height="120" viewBox="0 0 720 120" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#0C0C18"/>
-      <stop offset="100%" stop-color="#111128"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#534AB7"/>
-      <stop offset="100%" stop-color="#1D9D74"/>
-    </linearGradient>
-  </defs>
-  <rect width="720" height="120" rx="12" fill="url(#bg)"/>
-  <rect y="108" width="720" height="4" rx="0" fill="url(#accent)"/>
-  <text x="360" y="52" font-family="ui-monospace,Menlo,monospace" font-size="38"
-        font-weight="700" fill="#EEEEFF" text-anchor="middle" letter-spacing="2">STATANIM</text>
-  <text x="360" y="82" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="14"
-        fill="#8888BB" text-anchor="middle" letter-spacing="1">
-    Statistical Animation for Manim
-  </text>
-</svg>
+<img src="./banner.svg" alt="STATANIM — Statistical Animation for Manim" width="680"/>
 
 <br/>
 
@@ -58,16 +34,19 @@ lives in `statanim`. Everything else remains standard Manim.
 ## Demo
 
 | Sample Space | Classical Probability |
-|---|---|
-| <video src="./videos/SampleSpaceScene.mp4" autoplay loop muted width="360"></video> | <video src="./videos/ClassicalProbabilityScene.mp4" autoplay loop muted width="360"></video> |
+|:---:|:---:|
+| ![Sample Space](./videos/SampleSpaceScene.gif) | ![Classical Probability](./videos/ClassicalProbabilityScene.gif) |
 
 | Conditional Probability | Hypergeometric Distribution |
-|---|---|
-| <video src="./videos/ConditionalProbabilityScene.mp4" autoplay loop muted width="360"></video> | <video src="./videos/HypergeometricScene.mp4" autoplay loop muted width="360"></video> |
+|:---:|:---:|
+| ![Conditional Probability](./videos/ConditionalProbabilityScene.gif) | ![Hypergeometric Distribution](./videos/HypergeometricScene.gif) |
 
 <div align="center">
-<strong>Birthday Paradox</strong><br/>
-<video src="./videos/BirthdayParadoxScene.mp4" autoplay loop muted width="500"></video>
+
+**Birthday Paradox**
+
+![Birthday Paradox](./videos/BirthdayParadoxScene.gif)
+
 </div>
 
 ---
@@ -281,7 +260,7 @@ statanim/
 | `ScatterCloud3D` | `regression.regression_plane` | 3D scatter coloured by residual or leverage |
 | `PlaneResiduals3D` | `regression.regression_plane` | Vertical residual lines to the fitted plane |
 | `CIShell3D` | `regression.regression_plane` | 95% confidence surface around the plane |
-| `DiagnosticPanel` | `regression.residuals` | 2x2 grid: residual plot, Q-Q, scale-location, influence |
+| `DiagnosticPanel` | `regression.residuals` | 2×2 grid: residual plot, Q-Q, scale-location, influence |
 
 ### UI
 
