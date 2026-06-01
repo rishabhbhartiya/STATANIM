@@ -59,15 +59,15 @@ lives in `statanim`. Everything else remains standard Manim.
 
 | Sample Space | Classical Probability |
 |---|---|
-| <video src="videos/SampleSpaceScene.mp4" autoplay loop muted width="360"></video> | <video src="videos/ClassicalProbabilityScene.mp4" autoplay loop muted width="360"></video> |
+| <video src="./videos/SampleSpaceScene.mp4" autoplay loop muted width="360"></video> | <video src="./videos/ClassicalProbabilityScene.mp4" autoplay loop muted width="360"></video> |
 
 | Conditional Probability | Hypergeometric Distribution |
 |---|---|
-| <video src="videos/ConditionalProbabilityScene.mp4" autoplay loop muted width="360"></video> | <video src="videos/HypergeometricScene.mp4" autoplay loop muted width="360"></video> |
+| <video src="./videos/ConditionalProbabilityScene.mp4" autoplay loop muted width="360"></video> | <video src="./videos/HypergeometricScene.mp4" autoplay loop muted width="360"></video> |
 
 <div align="center">
 <strong>Birthday Paradox</strong><br/>
-<video src="videos/BirthdayParadoxScene.mp4" autoplay loop muted width="500"></video>
+<video src="./videos/BirthdayParadoxScene.mp4" autoplay loop muted width="500"></video>
 </div>
 
 ---
