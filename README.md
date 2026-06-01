@@ -14,7 +14,6 @@ Distributions, inference, regression, probability theory, and physical props —
 all built on [Manim Community](https://www.manim.community/).
 
 </div>
-
 ---
 
 ## Overview
