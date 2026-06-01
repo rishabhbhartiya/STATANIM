@@ -22,6 +22,7 @@ media/
 Tex/
 partial_movie_files/
 *.gif
+!videos/*.gif
 *.mov
 *.avi
 *.webm
