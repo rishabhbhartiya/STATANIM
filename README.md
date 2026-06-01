@@ -19,7 +19,7 @@
   <rect width="720" height="120" rx="12" fill="url(#bg)"/>
   <rect y="108" width="720" height="4" rx="0" fill="url(#accent)"/>
   <text x="360" y="52" font-family="ui-monospace,Menlo,monospace" font-size="38"
-        font-weight="700" fill="#EEEEFF" text-anchor="middle" letter-spacing="2">statanim</text>
+        font-weight="700" fill="#EEEEFF" text-anchor="middle" letter-spacing="2">STATANIM</text>
   <text x="360" y="82" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="14"
         fill="#8888BB" text-anchor="middle" letter-spacing="1">
     Statistical Animation for Manim
