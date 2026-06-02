@@ -10,6 +10,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-888888.svg?labelColor=0C0C18)](./LICENSE)
 
 **A Manim extension for animated statistical visualisations.**
+
 Distributions, inference, regression, probability theory, and physical props —
 all built on [Manim Community](https://www.manim.community/).
 
@@ -35,6 +36,8 @@ Whether you're building lecture slides, making YouTube explainers, or just tryin
 
 **Classical Probability**
 
+[![Classical Probability](https://readmeforge.natrajx.in/api/button?label=Classical+Probability&icon=&metal=chrome&style=glass&width=400&theme=dark)](https://raw.githubusercontent.com/rishabhbhartiya/STATANIM/main/videos/ClassicalProbabilityScene.gif)
+
 ![Classical Probability](https://raw.githubusercontent.com/rishabhbhartiya/STATANIM/main/videos/ClassicalProbabilityScene.gif)
 
 **Conditional Probability**
@@ -59,6 +62,8 @@ Whether you're building lecture slides, making YouTube explainers, or just tryin
 pip install manim
 ```
 
+![pip install manim](https://readmeforge.natrajx.in/api/badge?label=pip+install+manim&metal=black&shape=flat&theme=dark)
+
 LaTeX is required for formula rendering:
 
 ```bash
@@ -79,11 +84,7 @@ pip install statanim
 
 **Install from source**
 
-```bash
-git clone https://github.com/rishabhbhartiya/statanim.git
-cd statanim
-pip install -e .
-```
+![Terminal](https://readmeforge.natrajx.in/api/terminal?title=profile.sh&lines=git+clone+https%3A%2F%2Fgithub.com%2Frishabhbhartiya%2Fstatanim.git%7C%0Acd+statanim%7C%0Apip+install+-e+.&theme=dark&metal=titanium&width=800)
 
 **Verify**
 
@@ -160,14 +161,7 @@ All `ThreeDScene` subclasses need an explicit camera orientation at the top of `
 def construct(self):
     self.set_camera_orientation(phi=70*DEGREES, theta=-45*DEGREES)
 ```
-
-| Scene type | phi | theta |
-|---|---|---|
-| 3D bar chart | 65° | -55° |
-| Regression plane | 70° | -45° |
-| Scatter cloud | 70° | -60° |
-| Card grid (table-top) | 60° | -45° |
-| Bivariate normal surface | 68° | -45° |
+![Table](https://readmeforge.natrajx.in/api/table?type=stats&metal=iron&width=721&theme=dark&title=Camera+Orientation+Reference&headers=Scene+type%2C+phi%2C+theta&rows=3D+bar+chart%2C%0965%C2%B0%2C%09-55%C2%B0%7C%0ARegression+plane%2C%0970%C2%B0%2C%09-45%C2%B0%7C%0AScatter+cloud%2C%0970%C2%B0%2C%09-60%C2%B0%7C%0ACard+grid+%28table-top%29%2C%0960%C2%B0%2C%09-45%C2%B0%7C%0ABivariate+normal+surface%2C%0968%C2%B0%2C%09-45%C2%B0)
 
 Use `Scene` (not `ThreeDScene`) for 2D content: PDF curves, PMF bars, Venn diagrams, histograms, box plots, probability trees, and hypothesis test plots.
 
