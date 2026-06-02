@@ -4,10 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name            = "statanim"
-version         = "0.1.0"
+version         = "0.1.1"
 description     = "A Manim extension for animated statistical visualisations — distributions, regression, probability, inference and more."
 readme          = "README.md"
-license         = { file = "LICENSE" }
+license         = "MIT"
+license-files   = ["LICENSE"]
 requires-python = ">=3.10"
 authors         = [
     { name = "Rishabh Bhartiya", email = "rishabh.bhartiya.in@gmail.com" }
@@ -24,7 +25,6 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Mathematics",
     "Topic :: Scientific/Engineering :: Visualization",
     "Topic :: Education",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -49,7 +49,7 @@ dev = [
 Homepage      = "https://github.com/rishabhbhartiya/statanim"
 Documentation = "https://github.com/rishabhbhartiya/statanim/blob/main/API_REFERENCE.md"
 "Bug Tracker" = "https://github.com/rishabhbhartiya/statanim/issues"
-"Source Code" = "https://github.com/rishabhbhartiya/statanim"
+"Source Code"  = "https://github.com/rishabhbhartiya/statanim"
 
 [tool.setuptools.packages.find]
 where   = ["."]
