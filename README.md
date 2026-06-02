@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./banner.svg" alt="STATANIM — Statistical Animation for Manim" width="680"/>
+<img src="https://raw.githubusercontent.com/rishabhbhartiya/STATANIM/main/banner.svg" alt="STATANIM — Statistical Animation for Manim" width="680"/>
 </div>
 
 <div align="center">
@@ -14,39 +14,40 @@ Distributions, inference, regression, probability theory, and physical props —
 all built on [Manim Community](https://www.manim.community/).
 
 </div>
+
 ---
 
-## Overview
+## Why statanim?
 
-`statanim` adds domain-specific tools to Manim that standard Manim does not provide:
-statistically-aware objects that understand distributions, parameters, and sampling;
-preset animation sequences for common demonstrations; 3D charts with correct depth
-perception; and physical probability props (dice, coins, cards, urns) that carry
-their own probability logic.
+Manim is extraordinary at animating mathematics — but when it comes to statistics, you're on your own. Want to show a normal distribution shading its tails as sigma changes? A probability tree that builds itself node by node? A deck of cards dealing out to demonstrate hypergeometric sampling? With vanilla Manim, each of these requires hundreds of lines of low-level geometry code before you even start on the actual statistics.
 
-The library is structured around the same workflow as Manim: you create objects,
-add them to a scene, and call `self.play()`. Everything that is specific to statistics
-lives in `statanim`. Everything else remains standard Manim.
+`statanim` closes that gap. It gives statistics the same treatment Manim gives mathematics: objects that *understand* what they represent, animations that carry statistical meaning, and a workflow that stays out of your way so you can focus on the idea you're trying to communicate.
+
+Whether you're building lecture slides, making YouTube explainers, or just trying to build intuition for a concept — statanim lets you go from idea to animation in minutes, not days.
 
 ---
 
 ## Demo
 
-| Sample Space | Classical Probability |
-|:---:|:---:|
-| ![Sample Space](./videos/SampleSpaceScene.gif) | ![Classical Probability](./videos/ClassicalProbabilityScene.gif) |
+**Sample Space**
 
-| Conditional Probability | Hypergeometric Distribution |
-|:---:|:---:|
-| ![Conditional Probability](./videos/ConditionalProbabilityScene.gif) | ![Hypergeometric Distribution](./videos/HypergeometricScene.gif) |
+![Sample Space](https://raw.githubusercontent.com/rishabhbhartiya/STATANIM/main/videos/SampleSpaceScene.gif)
 
-<div align="center">
+**Classical Probability**
+
+![Classical Probability](https://raw.githubusercontent.com/rishabhbhartiya/STATANIM/main/videos/ClassicalProbabilityScene.gif)
+
+**Conditional Probability**
+
+![Conditional Probability](https://raw.githubusercontent.com/rishabhbhartiya/STATANIM/main/videos/ConditionalProbabilityScene.gif)
+
+**Hypergeometric Distribution**
+
+![Hypergeometric Distribution](https://raw.githubusercontent.com/rishabhbhartiya/STATANIM/main/videos/HypergeometricScene.gif)
 
 **Birthday Paradox**
 
-![Birthday Paradox](./videos/BirthdayParadoxScene.gif)
-
-</div>
+![Birthday Paradox](https://raw.githubusercontent.com/rishabhbhartiya/STATANIM/main/videos/BirthdayParadoxScene.gif)
 
 ---
 
@@ -115,19 +116,6 @@ class NormalDemo(Scene):
         self.wait(2)
 ```
 
-### Central Limit Theorem
-
-```python
-from manim import *
-from statanim.animations.clt_demo import CLTDemo
-
-class CLTScene(ThreeDScene):
-    def construct(self):
-        self.set_camera_orientation(phi=70*DEGREES, theta=-45*DEGREES)
-        demo = CLTDemo(source="uniform", params={"a": 0, "b": 1}, n_samples=500)
-        demo.run(self)
-```
-
 ### Probability with playing cards
 
 ```python
@@ -146,162 +134,32 @@ class CardDraw(Scene):
 
 ---
 
-## Module Structure
+## What's Inside
 
-```
-statanim/
-├── animations/
-│   ├── clt_demo.py          CLTDemo, PopulationDistribution3D, SampleMeanHistogram3D
-│   ├── flip_roll.py         Coin flip and die roll animations
-│   ├── sampling.py          SimpleRandomSampling3D, StratifiedSampling3D,
-│   │                        ClusterSampling3D, BootstrapSampling3D
-│   └── transitions.py       DistMorph3D, HistMorph3D, CDFBuild3D,
-│                             ParameterSweep3D, ScatterToRegression3D
-│
-├── axes/
-│   ├── axes3d.py            Enhanced ThreeDAxes with statistical tick formatting
-│   ├── grid3d.py            FullGrid3D, statistical grid overlays
-│   └── number_plane3d.py    3D number planes for bivariate data
-│
-├── charts/
-│   ├── bar_chart3d.py       BarChart3D, grouped and stacked variants
-│   ├── box_plot3d.py        BoxPlot3D with whiskers and outlier markers
-│   ├── heat_map3d.py        HeatMap3D for correlation and confusion matrices
-│   ├── histogram3d.py       Histogram3D with configurable binning
-│   ├── line_plot3d.py       LinePlot3D, MultiLine3D, CDFLine3D, ParametricCurve3D
-│   ├── scatter_plot3d.py    ScatterPlot3D with regression overlay
-│   └── violin_plot3d.py     ViolinPlot3D for distribution shape comparison
-│
-├── core/
-│   ├── base.py              StatsObject3D base class
-│   ├── colors.py            StatColor, ColorFamily, StatsTheme, 6 built-in themes
-│   ├── math_utils.py        PDF, CDF, PMF computation helpers
-│   └── tex_utils.py         TexFormula, 50+ formula builders, formula registry
-│
-├── distributions/
-│   ├── base_dist.py         BaseDistribution3D
-│   ├── continuous_dists.py  Exponential, Gamma, Beta, Chi-squared, Student-t, F
-│   ├── discrete_dists.py    Binomial, Poisson, Geometric, Hypergeometric
-│   ├── normal3d.py          NormalCurve3D, BivariateNormal3D
-│   ├── pdf_viz.py           PDFVisualizer3D with shaded regions
-│   ├── pmf_viz.py           PMFVisualizer3D
-│   └── cdf_viz.py           CDFVisualizer3D
-│
-├── inference/
-│   ├── hypothesis.py        HypothesisRegion3D, rejection zones
-│   ├── confidence_interval.py  ConfidenceInterval3D
-│   ├── sampling_dist.py     SamplingDistribution3D, CLT demonstration
-│   └── error_types.py       Type I / Type II error visualisation
-│
-├── probability/
-│   ├── bayes.py             BayesBox3D, prior/posterior update
-│   ├── prob_tree.py         ProbabilityTree3D
-│   ├── sample_space.py      SampleSpace3D, EventRegion3D
-│   └── venn3d.py            VennDiagram3D (2-set and 3-set)
-│
-├── props/
-│   ├── card.py              Card3D, Deck3D, CardFace, deal/shuffle/flip animations
-│   ├── coin.py              Coin3D with flip animation
-│   ├── die.py               Die3D (D4, D6, D8, D12, D20) with roll animation
-│   ├── spinner.py           Spinner3D with sector probabilities
-│   └── urn.py               Urn3D and Ball3D for sampling models
-│
-├── regression/
-│   ├── correlation.py       pearson, spearman, kendall, OLS fit,
-│   │                        CorrelationEllipse3D, CorrelationMatrix3D
-│   ├── regression_plane.py  RegressionPlane3D, ScatterCloud3D,
-│   │                        PlaneResiduals3D, CIShell3D, PIShell3D
-│   └── residuals.py         ResidualVsFittedPlot, QQPlot3D, ScaleLocationPlot,
-│                             InfluencePlot3D, DiagnosticPanel
-│
-├── scenes/
-│   ├── demo_bayes.py        Bayesian inference demonstration
-│   ├── demo_clt.py          Central Limit Theorem demonstration
-│   ├── demo_distributions.py  Distribution showcase
-│   └── demo_hypothesis.py   Hypothesis testing demonstration
-│
-└── ui/
-    ├── labels.py            StatLabel3D, AnnotationArrow3D
-    ├── panels.py            FormulaPanel3D, LegendPanel3D
-    ├── table3d.py           DataTable3D floating data grid
-    └── ticker.py            Ticker3D, PValueTicker3D, TickerGroup3D
-```
+| Module | What it gives you |
+|---|---|
+| `distributions` | Normal, Binomial, Poisson, Hypergeometric, Beta, Gamma, Chi-squared, Student-t, F — all with PDF/PMF/CDF visualisers and shadeable regions |
+| `charts` | BarChart3D, Histogram3D, BoxPlot3D, ViolinPlot3D, HeatMap3D, ScatterPlot3D, LinePlot3D — statistically correct, 3D-aware |
+| `probability` | SampleSpace3D, VennDiagram3D, ProbabilityTree3D, BayesBox3D — builds event regions and conditional flows step by step |
+| `inference` | HypothesisRegion3D, ConfidenceInterval3D, SamplingDistribution3D, Type I/II error visualisation |
+| `regression` | RegressionPlane3D, ScatterCloud3D, residual diagnostics, correlation matrices, CI/PI shells |
+| `props` | Card3D, Deck3D, Coin3D, Die3D (D4–D20), Spinner3D, Urn3D — physical probability objects with built-in logic and animations |
+| `animations` | CLTDemo, DistMorph3D, ParameterSweep3D, BootstrapSampling3D, ScatterToRegression3D |
+| `ui` | Ticker3D, PValueTicker3D, FormulaPanel3D, DataTable3D, AnnotationArrow3D |
+| `core` | 6 built-in themes (DARK, LIGHT, PAPER, and more), diverging colormaps, 50+ LaTeX formula builders |
 
----
-
-## Key Classes
-
-### Distributions
-
-| Class | Module | Parameters |
-|---|---|---|
-| `NormalCurve3D` | `distributions.normal3d` | `mu`, `sigma`, `axes`, `color` |
-| `BivariateNormal3D` | `distributions.normal3d` | `mu1`, `mu2`, `sigma1`, `sigma2`, `rho` |
-| `PDFVisualizer3D` | `distributions.pdf_viz` | `pdf_func`, `x_range`, `axes` |
-| `PMFVisualizer3D` | `distributions.pmf_viz` | `pmf_dict`, `axes` |
-| `CDFVisualizer3D` | `distributions.cdf_viz` | `cdf_func`, `x_range`, `axes` |
-
-### Props
-
-| Class | Module | Key animations |
-|---|---|---|
-| `Card3D` | `props.card` | `flip()`, `deal_anim()`, `reveal_anim()` |
-| `Deck3D` | `props.card` | `deal_one()`, `deal_n()`, `shuffle_anim()`, `fan_out()` |
-| `Coin3D` | `props.coin` | `flip_anim()` |
-| `Die3D` | `props.die` | `roll_anim()` |
-| `Urn3D` | `props.urn` | `draw_anim()`, `replace_anim()` |
-
-### Regression
-
-| Class | Module | Description |
-|---|---|---|
-| `RegressionPlane3D` | `regression.regression_plane` | Fitted plane for two-predictor OLS |
-| `ScatterCloud3D` | `regression.regression_plane` | 3D scatter coloured by residual or leverage |
-| `PlaneResiduals3D` | `regression.regression_plane` | Vertical residual lines to the fitted plane |
-| `CIShell3D` | `regression.regression_plane` | 95% confidence surface around the plane |
-| `DiagnosticPanel` | `regression.residuals` | 2×2 grid: residual plot, Q-Q, scale-location, influence |
-
-### UI
-
-| Class | Module | Description |
-|---|---|---|
-| `Ticker3D` | `ui.ticker` | Animated statistical value badge with `count_to()`, `odometer_to()` |
-| `PValueTicker3D` | `ui.ticker` | P-value ticker with significance stars and threshold colouring |
-| `TickerGroup3D` | `ui.ticker` | Dashboard of multiple tickers in row / column / grid layout |
-| `FormulaPanel3D` | `ui.panels` | Floating LaTeX formula overlay panel |
-| `DataTable3D` | `ui.table3d` | Floating data table in 3D space |
-
-### Color system
-
-```python
-from statanim.core.colors import DARK_THEME, LIGHT_THEME, PAPER_THEME
-from statanim.core.colors import NORMAL_FAMILY, REGRESSION_FAMILY, INFERENCE_FAMILY
-
-# Apply a theme to a scene
-DARK_THEME.apply(self)
-
-# Use a family colour
-curve.set_color(ManimColor(NORMAL_FAMILY.base.hex))
-
-# Diverging colormap for a heatmap
-from statanim.core.colors import diverging_map, PURPLE_700, CORAL_700
-cmap = diverging_map(PURPLE_700, CORAL_700, n=256)
-```
+Full class and parameter documentation: [API_REFERENCE.md](./API_REFERENCE.md)
 
 ---
 
 ## Camera Orientation Reference
 
-All `ThreeDScene` subclasses need an explicit camera orientation at the top of
-`construct()`. Without it everything appears flat on the floor.
+All `ThreeDScene` subclasses need an explicit camera orientation at the top of `construct()`.
 
 ```python
 def construct(self):
     self.set_camera_orientation(phi=70*DEGREES, theta=-45*DEGREES)
-    # ... rest of scene
 ```
-
-Recommended values by scene type:
 
 | Scene type | phi | theta |
 |---|---|---|
@@ -311,58 +169,7 @@ Recommended values by scene type:
 | Card grid (table-top) | 60° | -45° |
 | Bivariate normal surface | 68° | -45° |
 
-Use `Scene` (not `ThreeDScene`) for all 2D content: PDF curves, PMF bars,
-Venn diagrams, histograms, box plots, probability trees, and hypothesis test plots.
-
----
-
-## Examples
-
-The `examples/` directory contains six working scenes:
-
-| File | Scene | Concepts |
-|---|---|---|
-| `examples/card_probability_scene.py` | `CardProbabilityScene` | Sample space, classical probability |
-| `examples/classical_probability.py` | `ClassicalProbabilityScene` | P(A), P(B), P(A∩B), addition rule |
-| `examples/conditional_probability.py` | `ConditionalProbabilityScene` | P(A\|B), independence |
-| `examples/hypergeometricscene.py` | `HypergeometricScene` | Hypergeometric PMF, sampling without replacement |
-| `examples/birthdayparadox_scene.py` | `BirthdayParadoxScene` | Birthday problem, collision probability |
-| `examples/card_probability.py` | `CardProbabilityScene` | Full card probability demonstration |
-
-Run any example:
-
-```bash
-manim -pql examples/classical_probability.py ClassicalProbabilityScene
-manim -pqh examples/classical_probability.py ClassicalProbabilityScene  # high quality
-```
-
----
-
-## API Reference
-
-Full class, function, and parameter documentation is in
-[API_REFERENCE.md](./API_REFERENCE.md).
-
-The reference covers all 57 files across 13 modules.
-[REFERENCE.md](./REFERENCE.md) contains narrative documentation
-for each module.
-
-To regenerate the reference files after making changes:
-
-```bash
-python reference.py
-```
-
----
-
-## Requirements
-
-| Package | Minimum version |
-|---|---|
-| Python | 3.10 |
-| manim | 0.18.0 |
-| numpy | 1.24 |
-| scipy | 1.10 |
+Use `Scene` (not `ThreeDScene`) for 2D content: PDF curves, PMF bars, Venn diagrams, histograms, box plots, probability trees, and hypothesis test plots.
 
 ---
 
@@ -392,8 +199,7 @@ implement `pdf`/`pmf`, `cdf`, `mean`, `variance`, and add a scene in
 ## Acknowledgements
 
 Built on [Manim Community](https://www.manim.community/).
-Statistical algorithms from [SciPy](https://scipy.org/) and
-[NumPy](https://numpy.org/).
+Statistical algorithms from [SciPy](https://scipy.org/) and [NumPy](https://numpy.org/).
 Inspired by the mathematical animation work of 3Blue1Brown.
 
 ---
