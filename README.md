@@ -6,7 +6,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/statanim.svg?color=534AB7&labelColor=0C0C18)](https://pypi.org/project/statanim/)
 [![PyPI Downloads](https://static.pepy.tech/personalized-badge/statanim?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/statanim)
-![Downloads](https://static.pepy.tech/badge/statanim)](https://pepy.tech/project/statanim)
+![Downloads](https://static.pepy.tech/badge/statanim)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-534AB7.svg?labelColor=0C0C18)](https://www.python.org/downloads/)
 [![Manim Community](https://img.shields.io/badge/manim-community-1D9D74.svg?labelColor=0C0C18)](https://www.manim.community/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-888888.svg?labelColor=0C0C18)](./LICENSE)
