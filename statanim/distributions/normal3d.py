@@ -733,8 +733,8 @@ class NormalCurve3D(VGroup):
 
     def shade_region(
         self,
-        x_lo: float,
-        x_hi: float,
+        x_min: float,
+        x_max: float,
         color: ManimColor = ManimColor("#E8593C"),
         label: bool = True,
         scene: Optional[ThreeDScene] = None,
@@ -743,8 +743,8 @@ class NormalCurve3D(VGroup):
 
         Computes P(x_lo ≤ X ≤ x_hi) analytically.
         """
-        lo = max(x_lo, self._x_min - self.x_pos)
-        hi = min(x_hi, self._x_max - self.x_pos)
+        lo = max(x_min, self._x_min - self.x_pos)
+        hi = min(x_max, self._x_max - self.x_pos)
         mask = (self._xs >= lo + self.x_pos) & (self._xs <= hi + self.x_pos)
         xs_r = self._xs[mask]
         ys_r = self._ys[mask]

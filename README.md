@@ -109,13 +109,10 @@ from statanim.distributions.normal3d import NormalCurve3D
 
 class NormalDemo(Scene):
     def construct(self):
-        axes = Axes(x_range=[-4, 4, 1], y_range=[0, 0.45, 0.1],
-                    x_length=8, y_length=4)
-        curve = NormalCurve3D(mu=0, sigma=1, axes=axes)
+        curve = NormalCurve3D(mu=0, sigma=1)
 
-        self.play(Create(axes))
         self.play(Create(curve))
-        self.play(curve.shade_region(x_min=-1, x_max=1))
+        self.play(FadeIn(curve.shade_region(x_lo=-1, x_hi=1)))
         self.wait(2)
 ```
 
