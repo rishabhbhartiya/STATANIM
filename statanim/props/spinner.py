@@ -497,8 +497,8 @@ class _SpinnerSectors(VGroup):
 
             col      = (colors[i % len(colors)] if colors
                         else SECTOR_COLORS[i % len(SECTOR_COLORS)])
-            dark_col = interpolate_color(col, BLACK, 0.32)
-            lite_col = interpolate_color(col, WHITE, 0.28)
+            dark_col = interpolate_color(ManimColor(col), BLACK, 0.32)
+            lite_col = interpolate_color(ManimColor(col), WHITE, 0.28)
 
             self._sector_angles.append((mid_ang, a_start, a_end))
             self._sector_colors.append(col)

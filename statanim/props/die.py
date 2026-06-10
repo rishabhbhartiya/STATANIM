@@ -345,7 +345,7 @@ class _PipWell(VGroup):
         super().__init__(**kwargs)
 
         well_col  = palette["pip_1"] if is_red else palette["pip_well"]
-        rim_col   = interpolate_color(well_col, palette["pip_rim"], 0.5)
+        rim_col = interpolate_color(ManimColor(well_col), ManimColor(palette["pip_rim"]), 0.5)
         floor_col = palette["pip_floor"] if not is_red else interpolate_color(
             palette["pip_1"], WHITE, 0.25)
 
