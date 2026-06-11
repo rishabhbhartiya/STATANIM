@@ -75,10 +75,11 @@ from manim import (
     ORIGIN, UP, DOWN, LEFT, RIGHT, IN, OUT,
     DEGREES, PI, TAU, WHITE, BLACK,
     # Utils
-    interpolate_color, normalize,
+    interpolate_color as _ic, normalize,
     rotation_matrix, smooth, there_and_back,
     ValueTracker, always_redraw,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 from ..core.base import (
     StatsObject3D,

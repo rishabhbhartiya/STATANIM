@@ -57,8 +57,9 @@ from manim import (
     DEGREES, PI,
     smooth, there_and_back,
     ValueTracker,
-    interpolate_color,
+    interpolate_color as _ic,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 from ..core.base import (
     StatsTheme, StatsColorPalette,

@@ -96,10 +96,11 @@ from manim import (
     Text, MathTex,
     FadeIn, FadeOut, GrowFromPoint, GrowFromCenter, Transform,
     Create, Write, AnimationGroup, Succession, LaggedStart,
-    interpolate_color,
+    interpolate_color as _ic,
     ManimColor,
     DEGREES,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 
 # ---------------------------------------------------------------------------

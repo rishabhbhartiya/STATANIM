@@ -82,11 +82,12 @@ from manim import (
     X_AXIS, Y_AXIS, Z_AXIS,
     WHITE, BLACK, GRAY, BLUE, GREEN, RED, YELLOW,
     # Colour utilities
-    ManimColor, color_to_rgb, interpolate_color,
+    ManimColor, color_to_rgb, interpolate_color as _ic,
     rgba_to_color, color_to_rgba,
     # Utilities
     rate_functions,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 # Re-use colour helpers from grid3d (copy inline to keep the module
 # self-contained when grid3d is not yet importable in a fresh checkout)

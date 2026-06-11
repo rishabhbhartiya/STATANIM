@@ -61,13 +61,14 @@ from manim import (
     ORANGE, PURPLE, TEAL, MAROON, GOLD, PINK,
     DEGREES, PI, TAU,
     # Utility
-    interpolate_color, color_to_rgba, rgba_to_color,
+    interpolate_color as _ic, color_to_rgba, rgba_to_color,
     normalize, angle_of_vector, rotation_matrix,
     there_and_back, smooth, rush_from, rush_into,
     # Scene config
     config,
     rate_functions,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 
 # ─────────────────────────────────────────────────────────────────────────────

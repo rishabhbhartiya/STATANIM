@@ -54,9 +54,10 @@ from manim import (
     UpdateFromAlphaFunc,
     ORIGIN, UP, DOWN, LEFT, RIGHT, IN, OUT,
     DEGREES, PI, TAU,
-    interpolate_color, smooth, there_and_back,
+    interpolate_color as _ic, smooth, there_and_back,
     ValueTracker, always_redraw,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 from ..core.base import (
     StatsTheme, StatsColorPalette,

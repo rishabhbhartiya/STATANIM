@@ -68,7 +68,7 @@ from manim import (
     WHITE, BLACK, GRAY, GRAY_A, GRAY_B, GRAY_C,
     DEGREES, PI, TAU,
     # Utilities
-    interpolate_color, normalize,
+    interpolate_color as _ic, normalize,
     rotation_matrix, angle_of_vector,
     smooth, rate_functions, there_and_back,
     DecimalNumber, Integer,
@@ -76,6 +76,7 @@ from manim import (
     ThreeDAxes, NumberPlane,
     always_redraw, ValueTracker,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 from ..core.base import (
     StatsObject3D, StatsProp3D,

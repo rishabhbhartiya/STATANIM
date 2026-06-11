@@ -74,7 +74,7 @@ from manim import (
     Animation, Succession, AnimationGroup,
     Rotate, ApplyMethod, FadeIn, FadeOut,
     ValueTracker,
-    interpolate_color,
+    interpolate_color as _ic,
     WHITE, BLACK,
     GREY, GREY_A, GREY_B, GREY_C, GREY_D, LIGHT_GREY,
     BLUE, BLUE_A, BLUE_B, BLUE_C, BLUE_D, BLUE_E,
@@ -88,6 +88,7 @@ from manim import (
     rate_functions,
     ManimColor,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Colour Palettes

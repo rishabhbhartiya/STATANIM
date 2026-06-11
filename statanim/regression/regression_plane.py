@@ -134,10 +134,11 @@ try:
         Rotate, Flash, Indicate,
         AnimationGroup, Succession, LaggedStart,
         rate_functions,
-        interpolate_color,
+        interpolate_color as _ic,
         # Camera
         GrowFromCenter,
     )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
     _MANIM_AVAILABLE = True
 except ImportError:
     _MANIM_AVAILABLE = False

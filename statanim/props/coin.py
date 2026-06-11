@@ -53,7 +53,7 @@ from manim import (
     # Updaters / value trackers
     ValueTracker,
     # Colour helpers
-    color_to_rgba, interpolate_color,
+    color_to_rgba, interpolate_color as _ic,
     # Common colours
     WHITE, BLACK, GOLD, GOLD_A, GOLD_B, GOLD_C, GOLD_D, GOLD_E,
     GREY, GREY_A, GREY_B, GREY_C, LIGHT_GREY,
@@ -66,6 +66,7 @@ from manim import (
     # Typing
     ManimColor,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 from manim.utils.color import ManimColor, color_to_rgb
 from typing import Literal, Optional
 import warnings
@@ -203,7 +204,7 @@ class _CoinEdge(VGroup):
         self.add(edge_cyl)
 
         # ── Reed grooves (dark thin strips) ───────────────────────────
-        groove_color = interpolate_color(color, BLACK, 0.35)
+        groove_color = interpolate_color(ManimColor(color), BLACK, 0.35)
         groove_w = TAU * radius / reed_count * 0.38   # ~38 % of pitch = dark
         reeds = VGroup()
         for i in range(reed_count):
@@ -293,7 +294,7 @@ class _CoinFace(VGroup):
 
         # ── 4. Radial engraving lines ─────────────────────────────────
         n_lines = 36
-        groove_col = interpolate_color(palette["body"], BLACK, 0.22)
+        groove_col = interpolate_color(ManimColor(palette["body"]), BLACK, 0.22)
         engravings = VGroup()
         for i in range(n_lines):
             ang = i * TAU / n_lines
@@ -423,7 +424,7 @@ class _CoinFace(VGroup):
         ]:
             dot = Circle(
                 radius=size * 0.08,
-                fill_color=interpolate_color(color, WHITE, 0.5),
+                fill_color=interpolate_color(ManimColor(color), WHITE, 0.5),
                 fill_opacity=1,
                 stroke_width=0,
             )
@@ -446,7 +447,7 @@ class _CoinFace(VGroup):
         )
         g.add(shield)
         # Inner cross (lighter)
-        cross_col = interpolate_color(color, WHITE, 0.45)
+        cross_col = interpolate_color(ManimColor(color), WHITE, 0.45)
         h_bar = Polygon(
             [-size * 0.7,  size * 0.15, 0],
             [ size * 0.7,  size * 0.15, 0],

@@ -83,7 +83,7 @@ from manim import (
     Indicate, Flash,
     Rotate, Transform, ReplacementTransform,
     ValueTracker,
-    interpolate_color, color_to_rgb,
+    interpolate_color as _ic, color_to_rgb,
     BLACK, WHITE,
     GREY,  GREY_B,  GREY_C,
     RED,   RED_B,   RED_C,
@@ -98,6 +98,7 @@ from manim import (
     rate_functions,
     VMobject,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Import inference components

@@ -81,7 +81,7 @@ from manim import (
     ApplyMethod, FadeIn, FadeOut, MoveAlongPath,
     Rotate,
     CubicBezier,
-    interpolate_color, color_to_rgb,
+    interpolate_color as _ic, color_to_rgb,
     WHITE, BLACK,
     GREY, GREY_A, GREY_B, GREY_C, GREY_D, LIGHT_GREY,
     RED, RED_A, RED_B, RED_C,
@@ -96,6 +96,7 @@ from manim import (
     ParametricFunction,
     Surface,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Colour Palettes  ──  Urn body
@@ -361,9 +362,9 @@ class Ball3D(VGroup):
         self.ball_radius = radius
         self.label_text  = label
 
-        dark_col  = interpolate_color(hex_col, BLACK, 0.60)
-        light_col = interpolate_color(hex_col, WHITE, 0.55)
-        rim_col   = interpolate_color(hex_col, WHITE, 0.35)
+        dark_col  = interpolate_color(ManimColor(hex_col), BLACK, 0.60)
+        light_col = interpolate_color(ManimColor(hex_col), WHITE, 0.55)
+        rim_col   = interpolate_color(ManimColor(hex_col), WHITE, 0.35)
 
         # ── 1. Shadow hemisphere cap (bottom dark zone) ───────────────
         # Approximate with a dark-filled sphere slightly smaller and offset
@@ -784,7 +785,7 @@ class _UrnHandle(VGroup):
         for y_att in [low_y, high_y]:
             disc = Circle(
                 radius=handle_thick * 1.3,
-                fill_color=interpolate_color(handle_col, BLACK, 0.2),
+                fill_color=interpolate_color(ManimColor(handle_col), BLACK, 0.2),
                 fill_opacity=1.0,
                 stroke_width=0,
             )

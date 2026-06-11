@@ -70,12 +70,13 @@ from manim import (
     RIGHT, LEFT, UP, DOWN, OUT, IN,
     WHITE, BLACK, GRAY, BLUE, GREEN, RED, YELLOW,
     ORIGIN, X_AXIS, Y_AXIS, Z_AXIS,
-    interpolate_color, color_to_rgba, rgba_to_color,
+    interpolate_color as _ic, color_to_rgba, rgba_to_color,
     ManimColor, color_to_rgb,
     AnimationGroup, LaggedStart, Create, FadeIn, DrawBorderThenFill,
     Scene,
     config,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 # ---------------------------------------------------------------------------
 # Internal colour helpers

@@ -88,7 +88,7 @@ from manim import (
     Text, MathTex, Tex,
     Animation, Succession, AnimationGroup,
     ApplyMethod, Rotate, FadeIn, FadeOut,
-    interpolate_color, color_to_rgb,
+    interpolate_color as _ic, color_to_rgb,
     WHITE, BLACK,
     GREY, GREY_A, GREY_B, GREY_C, GREY_D, LIGHT_GREY,
     RED,    RED_A,    RED_B,    RED_C,    RED_D,
@@ -103,6 +103,7 @@ from manim import (
     rate_functions,
     ManimColor,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Default sector colour cycle
@@ -673,7 +674,7 @@ class _SpinnerHub(VGroup):
             self.add(Line(
                 start=[r0 * np.cos(ang), r0 * np.sin(ang), z0 + 0.003],
                 end  =[r1 * np.cos(ang), r1 * np.sin(ang), z0 + 0.003],
-                stroke_color=interpolate_color(hp["bearing"], BLACK, 0.25),
+                stroke_color=interpolate_color(ManimColor(hp["bearing"]), BLACK, 0.25),
                 stroke_width=0.6,
                 stroke_opacity=0.60,
             ))
@@ -803,7 +804,7 @@ class _SpinnerNeedle(VGroup):
         # ── Tip cap ───────────────────────────────────────────────────
         tip_cap = Circle(
             radius=hw * 0.22,
-            fill_color=interpolate_color(np_["body"], WHITE, 0.45),
+            fill_color=interpolate_color(ManimColor(np_["body"]), WHITE, 0.45),
             fill_opacity=1.0,
             stroke_width=0,
         )

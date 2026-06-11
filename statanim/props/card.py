@@ -81,7 +81,7 @@ try:
         MoveAlongPath, ArcBetweenPoints,
         rate_functions,
         # Colors
-        interpolate_color,
+        interpolate_color as _ic,
     )
     _MANIM_AVAILABLE = True
 except ImportError:
@@ -90,6 +90,7 @@ except ImportError:
     VGroup = VMobject = object  # type: ignore
 
 
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 def _require_manim(method_name: str) -> None:
     if not _MANIM_AVAILABLE:
         raise ImportError(

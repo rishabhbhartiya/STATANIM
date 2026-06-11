@@ -91,7 +91,7 @@ from manim import (
     Transform, ReplacementTransform,
     MoveToTarget,
     ValueTracker,
-    interpolate_color, color_to_rgb,
+    interpolate_color as _ic, color_to_rgb,
     always_redraw,
     BLACK, WHITE,
     GREY,   GREY_A,   GREY_B,   GREY_C,   GREY_D,
@@ -110,6 +110,7 @@ from manim import (
     NumberLine,
     DEGREES,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Optional urn import (graceful fallback to plain shapes if unavailable)

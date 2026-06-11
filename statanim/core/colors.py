@@ -7,6 +7,7 @@ Architecture
 ------------
   Layer 0  StatColor          — single color with accessibility utilities
   Layer 1  ColorFamily        — semantically grouped color ramp (base/light/dark/muted…)
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
   Layer 2  DistributionPalette— per-distribution-family curated palettes
   Layer 3  StatsTheme         — full scene theme (bg, axes, grid, annotation, …)
   Layer 4  Manim helpers      — gradient ramps, colormaps, diverging maps

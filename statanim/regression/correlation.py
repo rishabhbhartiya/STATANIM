@@ -74,9 +74,10 @@ try:
         Rotate, Flash, Indicate, Circumscribe,
         AnimationGroup, Succession, LaggedStart,
         rate_functions,
-        interpolate_color,
+        interpolate_color as _ic,
         SurroundingRectangle,
     )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
     _MANIM_AVAILABLE = True
 except ImportError:
     _MANIM_AVAILABLE = False

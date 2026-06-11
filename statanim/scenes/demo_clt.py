@@ -88,7 +88,7 @@ from manim import (
     Rotate,
     Transform, ReplacementTransform,
     ValueTracker,
-    interpolate_color, color_to_rgb,
+    interpolate_color as _ic, color_to_rgb,
     always_redraw,
     BLACK, WHITE,
     GREY,  GREY_A,  GREY_B,  GREY_C,  GREY_D,
@@ -105,6 +105,7 @@ from manim import (
     ManimColor,
     VMobject,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Import sampling_dist components (graceful fallback)

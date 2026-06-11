@@ -95,11 +95,12 @@ from manim import (
     X_AXIS, Y_AXIS, Z_AXIS,
     WHITE, BLACK, GRAY, BLUE, GREEN, RED, YELLOW,
     # Colour utilities
-    ManimColor, color_to_rgb, interpolate_color,
+    ManimColor, color_to_rgb, interpolate_color as _ic,
     rgba_to_color, color_to_rgba,
     # Utilities
     rate_functions, smooth,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 # ---------------------------------------------------------------------------
 # Shared colour helpers — self-contained copy for module independence

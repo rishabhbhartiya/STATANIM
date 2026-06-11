@@ -120,7 +120,7 @@ from manim import (
     Create, Write, Uncreate,
     Indicate, Flash,
     Rotate,
-    interpolate_color, color_to_rgb,
+    interpolate_color as _ic, color_to_rgb,
     WHITE, BLACK,
     GREY,  GREY_A,  GREY_B,  GREY_C,  GREY_D,
     RED,   RED_A,   RED_B,   RED_C,   RED_D,   RED_E,
@@ -136,6 +136,7 @@ from manim import (
     ManimColor,
     VMobject,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # scipy — graceful fallback

@@ -99,7 +99,7 @@ from manim import (
     Rotate,
     Create, Write, Uncreate,
     always_redraw,
-    interpolate_color,
+    interpolate_color as _ic,
     color_to_rgb,
     WHITE, BLACK,
     GREY, GREY_A, GREY_B, GREY_C, GREY_D, LIGHT_GREY,
@@ -116,6 +116,7 @@ from manim import (
     ManimColor,
     ValueTracker,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Colour themes

@@ -97,11 +97,12 @@ from manim import (
     FadeIn, FadeOut, GrowFromCenter, GrowFromPoint, Transform,
     Create, Write, AnimationGroup, Succession, LaggedStart,
     Rotate, Flash,
-    interpolate_color, ValueTracker, always_redraw,
+    interpolate_color as _ic, ValueTracker, always_redraw,
     ManimColor,
     DEGREES,
     rate_functions,
 )
+interpolate_color = lambda c1, c2, t: _ic(ManimColor(c1), ManimColor(c2), t)
 
 
 # ---------------------------------------------------------------------------
